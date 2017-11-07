@@ -1,18 +1,17 @@
-package eu.tieto.controller;
+package com.tieto.controller;
 
-import exception.PasswordNotEqualException;
-import exception.UserAlreadyExistsException;
+import com.tieto.exception.PasswordNotEqualException;
+import com.tieto.exception.UserAlreadyExistsException;
+import com.tieto.service.UserService;
 import lombok.Getter;
 import lombok.Setter;
-import service.UserService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.component.html.HtmlInputText;
 import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import java.util.logging.Logger;
 
@@ -43,30 +42,21 @@ public class LoginController {
         return isLoggedIn ? "index.xhtml" : null;
     }
 
-    public void checkLoginName(final AjaxBehaviorEvent event) {
-
-        final String value = (String) ((HtmlInputText) event.getComponent()).getValue();
-
-        final Boolean isAlreadyInDatabase = this.userService.isUsernameAlreadyInDatabase(value);
-        if (isAlreadyInDatabase) {
-            this.logger.info("Uzivatel existuje!");
-            final FacesContext currentInstance = FacesContext.getCurrentInstance();
-            currentInstance.addMessage("loginNameId", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Chyba!", "Uzivatel jiz existuje!"));
-        }
-    }
-
     public String register() {
 
         if (this.inRegistration) {
+            checkLoginName(null, null, this.loginName);
             try {
                 this.userService.processRegistration(this.loginName, this.password, this.passwordConfirm);
             } catch (final PasswordNotEqualException e) {
                 final FacesContext currentInstance = FacesContext.getCurrentInstance();
-                currentInstance.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Chyba!", "Hesla nejsou stejna!"));
+                currentInstance.addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_ERROR, "Chyba!", "Hesla nejsou stejna!"));
                 return null;
             } catch (final UserAlreadyExistsException e) {
                 final FacesContext currentInstance = FacesContext.getCurrentInstance();
-                currentInstance.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Chyba!", "Uzivatel jiz existuje!"));
+                currentInstance.addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_ERROR, "Chyba!", "Uzivatel jiz existuje!"));
                 return null;
             }
             return "index.xhtml";
@@ -74,6 +64,17 @@ public class LoginController {
             this.inRegistration = true;
         }
         return null;
+    }
+
+    public void checkLoginName(final FacesContext facesContext, final javax.faces.component.UIComponent component,
+                               final java.lang.Object value) {
+
+        final Boolean isAlreadyInDatabase = this.userService.isUsernameAlreadyInDatabase((String) value);
+        if (isAlreadyInDatabase) {
+            this.logger.info("Uzivatel existuje!");
+            throw new ValidatorException(
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Chyba!", "Uzivatel jiz existuje!"));
+        }
     }
 
 }

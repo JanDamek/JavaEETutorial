@@ -1,7 +1,7 @@
-package eu.tieto.controller;
+package com.tieto.controller;
 
-import eu.tieto.service.SessionListener;
-import eu.tieto.service.SessionService;
+import com.tieto.service.SessionListener;
+import com.tieto.service.SessionService;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,13 +11,14 @@ import javax.inject.Inject;
 import java.util.logging.Logger;
 
 @ManagedBean
-@Getter @Setter
+@Getter
+@Setter
 public class IndexController {
 
-    @ManagedProperty(value ="#{sessionListener}")
+    @ManagedProperty(value = "#{sessionListener}")
     private SessionListener sessionListener;
 
-    @ManagedProperty(value ="#{sessionService}")
+    @ManagedProperty(value = "#{sessionService}")
     private SessionService sessionService;
 
     @Inject
@@ -26,15 +27,15 @@ public class IndexController {
     private String name;
 
     public void save() {
-          logger.info("Call save method.");
-          sessionService.setName(name);
+        this.logger.info("Call save method.");
+        this.sessionService.setName(this.name);
     }
 
     public String getNameFromSessionService() {
-        return sessionService.getName();
+        return this.sessionService.getName();
     }
 
     public int getSessionCount() {
-        return sessionListener.getCnt();
+        return this.sessionListener.getCnt();
     }
 }

@@ -1,5 +1,4 @@
-package eu.tieto.service;
-
+package com.tieto.service;
 
 import lombok.Getter;
 
@@ -17,11 +16,11 @@ public class SessionListener implements HttpSessionListener {
 
     private static int cnt;
 
-    public void sessionCreated(HttpSessionEvent httpSessionEvent) {
+    public void sessionCreated(final HttpSessionEvent httpSessionEvent) {
         cnt++;
     }
 
-    public void sessionDestroyed(HttpSessionEvent httpSessionEvent) {
+    public void sessionDestroyed(final HttpSessionEvent httpSessionEvent) {
         cnt--;
     }
 

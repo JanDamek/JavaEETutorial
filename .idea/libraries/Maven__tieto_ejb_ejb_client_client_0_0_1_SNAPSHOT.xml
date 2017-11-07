@@ -4,9 +4,11 @@
       <root url="jar://$MAVEN_REPOSITORY$/tieto/ejb/0.0.1-SNAPSHOT/ejb-0.0.1-SNAPSHOT-client.jar!/" />
     </CLASSES>
     <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/ejb/ejb-0.0.1-SNAPSHOT-javadoc.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/tieto/ejb/0.0.1-SNAPSHOT/ejb-0.0.1-SNAPSHOT-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
+      <root url="jar://$PROJECT_DIR$/ejb/ejb-0.0.1-SNAPSHOT-sources.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/tieto/ejb/0.0.1-SNAPSHOT/ejb-0.0.1-SNAPSHOT-sources.jar!/" />
     </SOURCES>
   </library>

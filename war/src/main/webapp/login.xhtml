@@ -9,11 +9,13 @@
 
     <h:form>
         <h:messages showDetail="true" showSummary="true"/>
+        <h:outputText value="Login name:"/>
+        <h:inputText id="loginNameId"
+                     value="#{loginController.loginName}"
+                     validator="#{loginController.checkLoginName}"
+                     requiredMessage="uzivatel musi byt vyplnen">
+        </h:inputText>
         <h:message id="loginNameIdMessage" for="loginNameId" showDetail="true" showSummary="true"/>
-        <h:outputText value="Login name:"/><h:inputText id="loginNameId"
-                                                        value="#{loginController.loginName}">
-        <f:ajax event="blur" render="loginNameIdMessage" listener="#{loginController.checkLoginName}"/>
-    </h:inputText>
         <br/>
         <h:outputText value="Password:"/><h:inputSecret value="#{loginController.password}"/>
         <br/>

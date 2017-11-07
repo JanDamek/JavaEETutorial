@@ -1,5 +1,4 @@
-package eu.tieto.entity;
-
+package com.tieto.entity;
 
 import lombok.Data;
 

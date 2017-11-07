@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tieto</groupId>
+    <groupId>com.tieto</groupId>
     <artifactId>JavaEETutorial</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>Java EE Tutorial</name>
     <packaging>pom</packaging>
 
-
     <dependencyManagement>
 
-    <dependencies>
+        <dependencies>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
 
-        <dependency>
-            <groupId>org.jboss.spec</groupId>
-            <artifactId>jboss-javaee-all-7.0</artifactId>
-            <version>1.0.1.Final</version>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-all-7.0</artifactId>
+                <version>1.0.1.Final</version>
+                <type>pom</type>
+                <scope>provided</scope>
+            </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
-            <scope>provided</scope>
-        </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.18</version>
+                <scope>provided</scope>
+            </dependency>
 
-        <dependency>
-            <groupId>tieto</groupId>
-            <artifactId>ejb</artifactId>
-            <type>ejb-client</type>
-            <version>${project.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>com.tieto</groupId>
+                <artifactId>ejb</artifactId>
+                <type>ejb-client</type>
+                <version>${project.version}</version>
+            </dependency>
 
-    </dependencies>
+        </dependencies>
 
     </dependencyManagement>
-
 
     <modules>
         <module>ejb</module>

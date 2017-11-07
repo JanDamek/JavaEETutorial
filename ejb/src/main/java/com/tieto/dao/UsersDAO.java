@@ -1,6 +1,6 @@
-package dao;
+package com.tieto.dao;
 
-import eu.tieto.entity.User;
+import com.tieto.entity.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -35,7 +35,8 @@ public class UsersDAO {
 
     public User getUserByCredentials(final String username, final String password) {
 
-        final TypedQuery<User> query = this.entityManager.createQuery("SELECT u from User u where u.username =:username and u.password=:password", User.class);
+        final TypedQuery<User> query = this.entityManager.createQuery(
+                "SELECT u from User u where u.username =:username and u.password=:password", User.class);
         query.setParameter("username", username);
         query.setParameter("password", password);
         return query.getSingleResult();
@@ -43,7 +44,8 @@ public class UsersDAO {
 
     public Long getUsersCount(final String username, final String password) {
 
-        final TypedQuery<Long> query = this.entityManager.createQuery("SELECT count (u) from User u where u.username =:username and u.password=:password", Long.class);
+        final TypedQuery<Long> query = this.entityManager.createQuery(
+                "SELECT count (u) from User u where u.username =:username and u.password=:password", Long.class);
         query.setParameter("username", username);
         query.setParameter("password", password);
         return query.getSingleResult();
@@ -51,7 +53,8 @@ public class UsersDAO {
 
     public List<User> isUsernameAlreadyInDatabase(final String username) {
 
-        final TypedQuery<User> query = this.entityManager.createQuery("SELECT u from User u where u.username =:username", User.class);
+        final TypedQuery<User> query =
+                this.entityManager.createQuery("SELECT u from User u where u.username =:username", User.class);
         query.setParameter("username", username);
         return query.getResultList();
     }

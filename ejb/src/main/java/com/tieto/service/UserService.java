@@ -1,9 +1,9 @@
-package service;
+package com.tieto.service;
 
-import dao.UsersDAO;
-import eu.tieto.entity.User;
-import exception.PasswordNotEqualException;
-import exception.UserAlreadyExistsException;
+import com.tieto.dao.UsersDAO;
+import com.tieto.entity.User;
+import com.tieto.exception.PasswordNotEqualException;
+import com.tieto.exception.UserAlreadyExistsException;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -22,7 +22,9 @@ public class UserService {
         return userCount == 0 ? false : true;
     }
 
-    public void processRegistration(final String userName, final String password, final String confirmPassword) throws PasswordNotEqualException, UserAlreadyExistsException {
+    public void processRegistration(final String userName, final String password, final String confirmPassword)
+            throws PasswordNotEqualException,
+            UserAlreadyExistsException {
 
         if (!password.equals(confirmPassword)) {
             throw new PasswordNotEqualException();
