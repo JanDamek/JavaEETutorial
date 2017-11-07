@@ -68,7 +68,9 @@ public class LoginController {
 
     public void checkLoginName(final FacesContext facesContext, final javax.faces.component.UIComponent component,
                                final java.lang.Object value) {
-
+        if (!this.inRegistration) {
+            return;
+        }
         final Boolean isAlreadyInDatabase = this.userService.isUsernameAlreadyInDatabase((String) value);
         if (isAlreadyInDatabase) {
             this.logger.info("Uzivatel existuje!");

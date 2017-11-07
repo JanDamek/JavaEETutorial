@@ -3,19 +3,18 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:outputLabel value="Hello, world"/>
     <br/>
     <h:link value="Prihlasit" outcome="login.xhtml"/>
     <h:form>
-    <h:outputText value="Name:"/><h:outputText value="#{indexController.nameFromSessionService}" />
+        <h:outputText value="Name:"/><h:outputText value="#{indexController.nameFromSessionService}"/>
         <br/>
-        <h:outputText value="Count:"/><h:outputText value="#{indexController.sessionCount}" />
+        <h:outputText value="Count:"/><h:outputText value="#{indexController.sessionCount}"/>
         <br/>
-    <h:inputText value="#{indexController.name}"/>
-        <h:commandButton value="ulozit" action="#{indexController.save}" />
+        <h:inputText value="#{indexController.name}"/>
+        <h:commandButton value="ulozit" action="#{indexController.save}"/>
     </h:form>
 </f:view>
 </html>
