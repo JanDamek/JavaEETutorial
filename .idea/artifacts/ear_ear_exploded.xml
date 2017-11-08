@@ -45,6 +45,9 @@
       <element id="archive" name="tutorialWeb.war">
         <element id="artifact" artifact-name="war:war exploded" />
       </element>
+      <element id="archive" name="adminWeb.war">
+        <element id="artifact" artifact-name="admin:war exploded" />
+      </element>
     </root>
   </artifact>
 </component>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Clients"/>
+    <h:form>
+        <h:panelGrid columns="4">
+            <h:commandLink value="Novy" action="#{clientController.createNewClient}"/>
+        </h:panelGrid>
+
+        <h:dataTable value="#{clientController.clients}" var="c" rendered="#{not clientController.editing}">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Jmeno"/>
+                </f:facet>
+                <h:outputText value="#{c.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Adresa"/>
+                </f:facet>
+                <h:outputText value="#{c.address}"/>
+            </h:column>
+            <h:column>
+                <h:commandLink value="Vymazat" action="#{clientController.remove(c)}"/>
+            </h:column>
+            <h:column>
+                <h:commandLink value="Editovat" action="#{clientController.edit(c)}"/>
+            </h:column>
+        </h:dataTable>
+
+        <h:panelGroup rendered="#{clientController.editing}">
+            <h:outputText value="Jmeno:"/>
+            <h:inputText value="#{clientController.name}"/>
+            <br/>
+            <h:outputText value="Adresa:"/>
+            <h:inputText value="#{clientController.address}"/>
+            <br/>
+            <h:commandButton value="Ulozit" action="#{clientController.save}"/>
+        </h:panelGroup>
+    </h:form>
+</f:view>
+</html>

@@ -7,14 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="admin" />
         <module name="ear" />
         <module name="ejb" />
         <module name="war" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="admin" target="1.5" />
       <module name="ear" target="1.5" />
       <module name="ejb" target="1.5" />
+      <module name="JavaEETraining" target="1.5" />
       <module name="JavaEETutorialMaven" target="1.5" />
       <module name="war" target="1.5" />
     </bytecodeTargetLevel>

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaEETraining.iml" filepath="$PROJECT_DIR$/JavaEETraining.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/ear/ear.iml" filepath="$PROJECT_DIR$/ear/ear.iml" />
       <module fileurl="file://$PROJECT_DIR$/ejb/ejb.iml" filepath="$PROJECT_DIR$/ejb/ejb.iml" />
       <module fileurl="file://$PROJECT_DIR$/war/war.iml" filepath="$PROJECT_DIR$/war/war.iml" />

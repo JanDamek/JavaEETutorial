@@ -26,6 +26,12 @@
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
+        <dependency>
+            <groupId>com.tieto</groupId>
+            <artifactId>admin</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
     </dependencies>
 
     <packaging>ear</packaging>
@@ -49,6 +55,12 @@
                             <artifactId>war</artifactId>
                             <bundleFileName>tutorialWeb.war</bundleFileName>
                             <context-root>/javaEE</context-root>
+                        </webModule>
+                        <webModule>
+                            <groupId>com.tieto</groupId>
+                            <artifactId>admin</artifactId>
+                            <bundleFileName>adminWeb.war</bundleFileName>
+                            <context-root>/javaEEAdmin</context-root>
                         </webModule>
                     </modules>
                     <generateApplicationXml>true</generateApplicationXml>

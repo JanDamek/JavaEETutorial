@@ -50,7 +50,7 @@ public class LoginController {
             checkLoginName(null, null, this.loginName);
             try {
                 this.userService.processRegistration(this.loginName, this.password, this.passwordConfirm,
-                        RoleEnum.UR_USER);
+                        RoleEnum.UR_ADMIN);
             } catch (final PasswordNotEqualException e) {
                 final FacesContext currentInstance = FacesContext.getCurrentInstance();
                 currentInstance.addMessage(null,

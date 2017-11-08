@@ -1,6 +1,5 @@
 package com.tieto.controller;
 
-import com.tieto.service.ApplicationService;
 import com.tieto.service.SessionService;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,9 +13,6 @@ import java.util.logging.Logger;
 @Getter
 @Setter
 public class IndexController {
-
-    @Inject
-    private ApplicationService applicationService;
 
     @ManagedProperty(value = "#{sessionService}")
     private SessionService sessionService;
@@ -35,7 +31,4 @@ public class IndexController {
         return this.sessionService.getName();
     }
 
-    public int getSessionCount() {
-        return this.applicationService.getSessionCount();
-    }
 }

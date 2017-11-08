@@ -1,30 +1,24 @@
-package com.tieto.service;
+package com.tieto.listener;
 
-import lombok.Getter;
+import com.tieto.service.ApplicationService;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-@ManagedBean
-@ApplicationScoped
 @WebListener
-@Getter
 public class SessionListener implements HttpSessionListener {
 
-    private static int cnt;
+    @Inject
+    private ApplicationService applicationService;
 
     public void sessionCreated(final HttpSessionEvent httpSessionEvent) {
-        cnt++;
+        this.applicationService.incrementSession();
     }
 
     public void sessionDestroyed(final HttpSessionEvent httpSessionEvent) {
-        cnt--;
+        this.applicationService.decrementSession();
     }
 
-    public int getCnt() {
-        return cnt;
-    }
 }
