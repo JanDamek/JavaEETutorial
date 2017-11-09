@@ -60,7 +60,7 @@ public class ClientService implements Serializable {
         final Client client = new Client();
         client.setAddress(address);
         client.setName(name);
-        this.clientDAO.save(client);
+        this.clientDAO.create(client);
         this.clients = null;
     }
 }

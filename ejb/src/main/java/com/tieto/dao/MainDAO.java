@@ -25,21 +25,22 @@ public class MainDAO<T extends EntityWithId> implements Serializable {
         this.persistedClass = persistedClass;
     }
 
-    public void save(final T user) {
-        if (this.em.contains(user)) {
-            this.em.merge(user);
-        } else {
-            this.em.persist(user);
-        }
+    public void create(final T entity) {
+        this.em.persist(entity);
     }
 
-    public void delete(final T user) {
-        if (this.em.contains(user)) {
-            this.em.remove(user);
+    public void update(final T entity) {
+        this.em.merge(entity);
+    }
+
+    public void delete(final T entity) {
+        //TODO Find why always do query and not remove
+        if (this.em.contains(entity)) {
+            this.em.remove(entity);
         } else {
             final Query query = this.em.createQuery(String.format("DELETE FROM %s t WHERE t.id = :id",
                     this.persistedClass.getSimpleName()));
-            query.setParameter("id", user.getId());
+            query.setParameter("id", entity.getId());
             query.executeUpdate();
         }
     }

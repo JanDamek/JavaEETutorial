@@ -23,6 +23,7 @@ public class ClientController {
 
     @Inject
     private ClientService clientService;
+
     private boolean editing;
     private String name;
     private String address;
@@ -57,5 +58,6 @@ public class ClientController {
 
     public void remove(final Client c) {
         this.clientService.remove(c);
+        this.clients = null;
     }
 }

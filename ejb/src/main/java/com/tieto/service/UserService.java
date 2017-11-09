@@ -38,7 +38,7 @@ public class UserService {
         user.setUsername(userName);
         user.setPassword(password);
         user.setRole(roleEnum);
-        this.usersDAO.save(user);
+        this.usersDAO.create(user);
 
     }
 
