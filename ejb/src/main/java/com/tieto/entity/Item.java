@@ -29,7 +29,7 @@ public class Item implements EntityWithId {
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Author author;
 
     @OneToMany(mappedBy = "placeFor")
