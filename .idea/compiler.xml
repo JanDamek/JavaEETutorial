@@ -19,7 +19,7 @@
       <module name="admin" target="1.5" />
       <module name="clientWar" target="1.5" />
       <module name="ear" target="1.5" />
-      <module name="ejb" target="1.5" />
+      <module name="ejb" target="1.7" />
       <module name="ejb-client" target="1.5" />
       <module name="JavaEETraining" target="1.5" />
       <module name="JavaEETutorialMaven" target="1.5" />
