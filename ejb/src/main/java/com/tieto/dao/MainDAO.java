@@ -1,6 +1,6 @@
 package com.tieto.dao;
 
-import com.tieto.entity.EntityWithId;
+import com.tieto.entity.common.EntityWithId;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import java.util.List;
  * For:
  * Created by damekjan on 08/11/2017.
  */
-public class MainDAO<T extends EntityWithId> implements Serializable {
+public class MainDAO<T extends EntityWithId, L extends Object> implements Serializable {
 
     @PersistenceContext(unitName = "javaEETutorial")
     transient EntityManager em;
@@ -34,7 +34,7 @@ public class MainDAO<T extends EntityWithId> implements Serializable {
     }
 
     public void delete(final T entity) {
-        //TODO Find why always do query and not remove
+        //TODO Find why always do query and not remove from entity manager
         if (this.em.contains(entity)) {
             this.em.remove(entity);
         } else {
@@ -45,7 +45,7 @@ public class MainDAO<T extends EntityWithId> implements Serializable {
         }
     }
 
-    public T getById(final Long id) {
+    public T getById(final L id) {
         return this.em.find(this.persistedClass, id);
     }
 

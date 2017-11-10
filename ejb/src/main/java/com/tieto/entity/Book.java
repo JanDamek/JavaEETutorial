@@ -1,7 +1,6 @@
 package com.tieto.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -15,6 +14,9 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("book")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Book extends Item {
 
     private static final long serialVersionUID = -2909642179108066361L;

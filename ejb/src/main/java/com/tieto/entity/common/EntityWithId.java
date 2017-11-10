@@ -1,4 +1,4 @@
-package com.tieto.entity;
+package com.tieto.entity.common;
 
 import java.io.Serializable;
 

@@ -23,8 +23,7 @@
         </dependency>
         <dependency>
             <groupId>com.tieto</groupId>
-            <artifactId>ejb</artifactId>
-            <type>ejb-client</type>
+            <artifactId>ejb-client</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

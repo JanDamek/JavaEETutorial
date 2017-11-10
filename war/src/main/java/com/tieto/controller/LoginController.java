@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -26,8 +27,9 @@ public class LoginController {
     @Inject
     private Logger logger;
 
-    @Inject
+    @EJB(lookup = "java:jboss/exported/ear-0.0.1-SNAPSHOT/tutorialEjb/UserServiceImpl!com.tieto.service.UserService")
     private UserService userService;
+
     private String loginName;
     private String password;
     private String passwordConfirm;

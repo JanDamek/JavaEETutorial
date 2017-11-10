@@ -1,21 +1,27 @@
 package com.tieto.service;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.inject.Singleton;
 
 /**
  * Project: JavaEETutorialMaven
  * For:
- * Created by damekjan on 08/11/2017.
+ * Created by damekjan on 09/11/2017.
  */
 @Singleton
 @Getter
-@Setter
-public class ApplicationService {
+public class ApplicationClientService {
 
     private int sessionCount;
+
+    public Integer getSoapRequestCount() {
+        return -1;
+    }
+
+    public Integer getRestRequestSoap() {
+        return -1;
+    }
 
     public void incrementSession() {
         this.sessionCount++;

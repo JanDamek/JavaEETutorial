@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -26,7 +27,7 @@ public class LoginController {
     @Inject
     private Logger logger;
 
-    @Inject
+    @EJB
     private UserService userService;
     private String loginName;
     private String password;

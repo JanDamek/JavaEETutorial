@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
  * Created by damekjan on 08/11/2017.
  */
 @Stateless
-public class CdDAO extends MainDAO<Cd> {
+public class CdDAO extends MainDAO<Cd, Number> {
 
     @PostConstruct
     private void init() {

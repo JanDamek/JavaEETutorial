@@ -16,5 +16,9 @@
         <h:inputText value="#{indexController.name}"/>
         <h:commandButton value="ulozit" action="#{indexController.save}"/>
     </h:form>
+    <br/>
+    <h:outputText value="Pozadavku pres SOAP: #{indexController.soapRequestCount}"/>
+    <br/>
+    <h:outputText value="Pozadavku pre REST: #{indexController.restRequestCount}"/>
 </f:view>
 </html>

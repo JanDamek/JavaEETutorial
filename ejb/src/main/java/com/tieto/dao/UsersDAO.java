@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Stateless
-public class UsersDAO extends MainDAO<User> {
+public class UsersDAO extends MainDAO<User, Number> {
 
     @PostConstruct
     private void init() {

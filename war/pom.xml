@@ -20,23 +20,25 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <version>1.0.1.Final</version>
             <groupId>org.jboss.spec</groupId>
             <artifactId>jboss-javaee-all-7.0</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.tieto</groupId>
-            <artifactId>ejb</artifactId>
-            <type>ejb-client</type>
+            <artifactId>ejb-client</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>

@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
  * Created by damekjan on 08/11/2017.
  */
 @Stateless
-public class AuthorDAO extends MainDAO<Author> {
+public class AuthorDAO extends MainDAO<Author, Long> {
 
     @PostConstruct
     private void init() {

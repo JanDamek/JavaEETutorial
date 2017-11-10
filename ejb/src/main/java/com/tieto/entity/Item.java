@@ -1,6 +1,9 @@
 package com.tieto.entity;
 
+import com.tieto.entity.common.EntityWithId;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -14,6 +17,8 @@ import java.util.Set;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "utype", discriminatorType = DiscriminatorType.STRING)
+@AllArgsConstructor
+@NoArgsConstructor
 public class Item implements EntityWithId {
 
     private static final long serialVersionUID = -4530425363130378467L;

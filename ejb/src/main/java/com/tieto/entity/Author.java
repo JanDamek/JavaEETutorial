@@ -1,6 +1,10 @@
 package com.tieto.entity;
 
+import com.tieto.entity.common.EntityWithId;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -12,6 +16,9 @@ import java.util.Set;
  */
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Author implements EntityWithId {
 
     private static final long serialVersionUID = 3762098544369382345L;

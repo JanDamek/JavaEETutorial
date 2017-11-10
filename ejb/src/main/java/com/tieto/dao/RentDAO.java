@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
  * Created by damekjan on 08/11/2017.
  */
 @Stateless
-public class RentDAO extends MainDAO<Rent> {
+public class RentDAO extends MainDAO<Rent, Number> {
 
     @PostConstruct
     private void init() {

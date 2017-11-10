@@ -1,6 +1,6 @@
 package com.tieto.controller;
 
-import com.tieto.entity.Client;
+import com.tieto.domain.ClientDTO;
 import com.tieto.service.ClientService;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,13 +27,9 @@ public class ClientController {
     private boolean editing;
     private String name;
     private String address;
-    private List<Client> clients;
 
-    public List<Client> getClients() {
-        if (this.clients == null) {
-            this.clients = this.clientService.getAllClient();
-        }
-        return this.clients;
+    public List<ClientDTO> getClients() {
+        return this.clientService.getAllClient();
     }
 
     public void createNewClient() {
@@ -42,22 +38,19 @@ public class ClientController {
         this.address = "";
     }
 
-    public void edit(final Client c) {
+    public void edit(final ClientDTO c) {
         this.name = c.getName();
         this.address = c.getAddress();
         this.clientService.startEdit(c);
         this.editing = true;
-        this.clients = null;
     }
 
     public void save() {
         this.editing = false;
         this.clientService.updateClientOrCreate(this.name, this.address);
-        this.clients = null;
     }
 
-    public void remove(final Client c) {
+    public void remove(final ClientDTO c) {
         this.clientService.remove(c);
-        this.clients = null;
     }
 }

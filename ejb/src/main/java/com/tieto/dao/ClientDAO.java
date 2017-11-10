@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
  * Created by damekjan on 08/11/2017.
  */
 @Stateless
-public class ClientDAO extends MainDAO<Client> {
+public class ClientDAO extends MainDAO<Client, Number> {
 
     private static final long serialVersionUID = -8616482406731283137L;
 

@@ -6,12 +6,14 @@ import com.tieto.entity.User;
 import com.tieto.exception.PasswordNotEqualException;
 import com.tieto.exception.UserAlreadyExistsException;
 
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 
 @Stateless
-public class UserService {
+@Remote(UserService.class)
+public class UserServiceImpl implements UserService {
 
     @Inject
     private UsersDAO usersDAO;
